@@ -79,6 +79,18 @@ public class HW10 {
             return null;
         }
     }
+// 4 Написать алгоритм RemoveAllSpaces.
+//С помощью методов из видео1,  написать алгоритм, который принимает на вход строку. Если строка валидная, то метод удаляет
+// все пробелы из строки, если таковые имеются. Метод возвращает обработанную строку.
+    public static String removeAllSpaces(String sent4){
+        if (sent4.length() != 0){
+            sent4 = sent4.replace(" ", "");
+            return sent4;
+        } else {
+            return null;
+        }
+    }
+
 
     public static void main(String[] args) {
         System.out.println(capitalizeWords("      happy birthday!"));
@@ -96,6 +108,7 @@ public class HW10 {
 
         print(task + 2);
         line(line);
+
 //  “    QA4Everyone   “ →  “QA4Everyone“
 //“panda   “ → “pnd”
 
@@ -112,6 +125,12 @@ public class HW10 {
         System.out.println(removeAllZeros("   3 5 0 4 2 0 9 7 0 6 0 4 0       0 0 0 "));
         System.out.println(removeAllZeros(" 0000000111"));
 
+        print(task + 4);
+        line(line);
+//  “    QA   4  Everyone   “ →  “QA4Everyone“
+//“p a     n d a   “ → “panda”
+        System.out.println(removeAllSpaces("    QA   4  Everyone   "));
+        System.out.println(removeAllSpaces("p a     n d a   "));
 
     }
 
