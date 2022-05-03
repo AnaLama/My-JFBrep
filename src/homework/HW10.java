@@ -103,6 +103,7 @@ public class HW10 {
         System.out.println(removeAlla("panda   "));
         System.out.println(removeAlla(""));
 
+
         print(task + 3);
         line(line);
 //  “   3 5 0 4 2 0 9 7 0 6 0 4 0       0 0 0 “ →  “35429764“
