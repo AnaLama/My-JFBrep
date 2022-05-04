@@ -142,7 +142,69 @@ public class HW10 {
 
             return str;
         }
-       return null;
+        return null;
+    }
+
+    // 9 Напишите метод, который принимает на вход строку, и возвращает все, что находится между первой и последней буквой-параметром
+    public static String getLettersBetween(String str, char let1) {
+        if (str.length() != 0) {
+            str = str.substring(str.indexOf(let1), str.lastIndexOf(let1));
+
+            return str;
+        }
+        return null;
+    }
+
+    // 10 Напишите метод, который принимает на вход слово, и возвращает true, если слово начинается и заканчивается на
+// одинаковую букву, и false иначе
+    public static boolean isTheSameLet(String str) {
+        //      if (str.length() != 0 && str != null){
+        str = str.toLowerCase();
+        if (str.charAt(0) == str.charAt(str.length() - 1)) {
+            return true;
+        } else {
+            return false;
+        }
+        //      }
+    }
+
+    // 11 Напишите метод, который принимает на вход предложение и возвращает слова из этого предложения в виде массива слов
+    public static String[] getWords(String str) {
+        if (str.length() != 0 && str != null) {
+            String words[] = str.split(" ");
+            for (int i = 0; i < words.length; i++) {
+                return words;
+            }
+        }
+        return null;
+    }
+
+    // 12 Написать метод, который принимает на вход предложение, которое состоит из имени, фамилии, отчества и возвращает массив строк:
+    public static String[] getArray(String str) {
+        if (str.length() != 0 && str != null) {
+            String word[] = str.split(" ");
+            for (int i = 0; i < word.length; i++) {
+                word[i] = "Имя: " + word[i];
+                word[i + 1] = "Отчество: " + word[i + 1];
+                word[i + 2] = "Фамилия: " + word[i + 2];
+                return word;
+            }
+        }
+        return null;
+    }
+
+    // 13 Написать метод, который возвращает сумму всех букв слова
+    public static int getSum(String str) {
+        int sum = 0;
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.valueOf(charArray[i]) >= 65) {
+                sum += charArray[i];
+            } else {
+                return 0;
+            }
+        }
+        return sum;
     }
 
 
@@ -225,7 +287,41 @@ public class HW10 {
 
         System.out.println(getTrueName("ташкент"));
         System.out.println(getTrueName("ЧикаГО"));
+
+        print(task2 + 9);
+        line(line);
+//“Abracadabra”, “b” → “bracadab”
+//“Whippersnapper”, “p” → “ppersnapp”
+        System.out.println(getLettersBetween("Abracadabra", 'b'));
+        System.out.println(getLettersBetween("Whippersnapper", 'p'));
+
+        print(task2 + 10);
+        line(line);
+//“Abracadabra” → true
+//	“Whippersnapper” → false
+        System.out.println(isTheSameLet("Abracadabra"));
+        System.out.println(isTheSameLet("Whippersnapper"));
+
+        print(task2 + 11);
+        line(line);
+// “QA for Everyone” → {“QA”, “for”, “Everyone”}
+//“Александр Сергеевич Пушкин” → {“Александр”, “Сергеевич”, “Пушкин”}
+        System.out.println(Arrays.toString(getWords("QA for Everyone")));
+        System.out.println(Arrays.toString(getWords("Александр Сергеевич Пушкин")));
+
+        print(task2 + 12);
+        line(line);
+// 12 “Александр Сергеевич Пушкин” →
+//{“Имя: Александр”, “Отчество: Сергеевич”, “Фамилия: Пушкин”}
+        System.out.println(Arrays.toString(getArray("Александр Сергеевич Пушкин")));
+
+        print(task2 + 13);
+        line(line);
+// 13 “abc” → 294
+//“ABC” → 198
+//“123” → 0 (это не буквы)
+        System.out.println(getSum("abc"));
+        System.out.println(getSum("ABC"));
+        System.out.println(getSum("123"));
     }
-
-
 }
