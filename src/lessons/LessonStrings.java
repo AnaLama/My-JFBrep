@@ -4,6 +4,8 @@ import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 import java.util.Locale;
 
+import static utils.Utils.line;
+
 public class LessonStrings {
     public static void main(String[] args) {
         String str1= "Java";
@@ -44,11 +46,15 @@ public class LessonStrings {
                 System.out.println(Character.toString('i'+1));
             }
         }
-        String[] arrayStr = new String[str4.length()];
+        line(line);
+
+        String[] arrayStr = new String[str4.length()];    // переводит строку в массив букв
         for(int i = 0; i < str4.length(); i++){
             arrayStr[i] = Character.toString(str4.charAt(i));
         }
         System.out.println(Arrays.toString(arrayStr));
+
+        line(line);
 
         System.out.println(str4.toCharArray());
         char [] arrayChar = str4.toCharArray();
