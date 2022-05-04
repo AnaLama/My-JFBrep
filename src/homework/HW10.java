@@ -206,6 +206,16 @@ public class HW10 {
         }
         return sum;
     }
+// 14 Написать метод,  который принимает на вход 2 буквы и возвращает true, если первая буква встречается раньше второй,
+// иначе метод возвращает false
+    public static boolean isThisPrimaryLetter(char a, char b){
+        if (Character.valueOf(a) < Character.valueOf(b)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -323,5 +333,12 @@ public class HW10 {
         System.out.println(getSum("abc"));
         System.out.println(getSum("ABC"));
         System.out.println(getSum("123"));
+
+        print(task2 + 14);
+        line(line);
+// method(“a”, “m”) → true
+//method(“m”, “l”) → false
+        System.out.println(isThisPrimaryLetter('a', 'm'));
+        System.out.println(isThisPrimaryLetter('m', 'l'));
     }
 }
