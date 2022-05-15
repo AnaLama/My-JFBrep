@@ -118,13 +118,8 @@ public class HW10 {
     // 6 Напишите метод, который принимает на вход текст и проверяет, содержится ли в тексте хотя бы одно слово Java.
     public static boolean isThereJavaWord(String text) {
         if (text != null && text.length() != 0) {
-            boolean bool = true;
-            if (text.contains("Java") == bool) {
 
-                return bool;  // убрать все, из условия сразу ретерн контейнс жава
-            } else {
-                return false;
-            }
+            return text.contains("Java");
         }
         return false;
     }
@@ -183,11 +178,11 @@ public class HW10 {
     public static String[] getArray(String str) {
         if (str != null && str.length() != 0) {
             String word[] = str.split(" ");
-                word[0] = "Имя: " + word[0];
-                word[1] = "Отчество: " + word[1];
-                word[2] = "Фамилия: " + word[2];
-                return word;
-            }
+            word[0] = "Имя: " + word[0];
+            word[1] = "Отчество: " + word[1];
+            word[2] = "Фамилия: " + word[2];
+            return word;
+        }
         return new String[]{};
     }
 
@@ -208,9 +203,9 @@ public class HW10 {
     // 14 Написать метод,  который принимает на вход 2 буквы и возвращает true, если первая буква встречается раньше второй,
 // иначе метод возвращает false
     public static boolean isThisPrimaryLetter(char a, char b) {
-       // if (Character.valueOf(a) < Character.valueOf(b)) {
-            return Character.valueOf(a) < Character.valueOf(b);
-        }
+        // if (Character.valueOf(a) < Character.valueOf(b)) {
+        return Character.valueOf(a) < Character.valueOf(b);
+    }
     //}
 
 
