@@ -1,7 +1,6 @@
 package homework;
 
 import java.util.Arrays;
-import java.util.Locale;
 
 import static utils.Utils.*;
 
@@ -39,9 +38,8 @@ public class HW10 {
         String message2 = "Пробелов не было";
         String message3 = "Строка пустая";
 
-        if (sentence1.length() != 0) {
+        if (sentence1 != null && !sentence1.isEmpty()) {
             sentence2 = sentence1.trim();
-
             if (sentence1.length() > sentence2.length()) {
 
                 return message1;
@@ -59,13 +57,14 @@ public class HW10 {
 //С помощью методов из видео1,  написать алгоритм, который принимает на вход строку. Если строка валидная, то метод удаляет
 // все буквы a из строки, если таковые имеются. Метод возвращает обработанную строку.
     public static String removeAlla(String sent2) {
-        if (sent2.length() != 0) {
+        if (sent2 != null && sent2.length() != 0) {
             sent2 = sent2.trim();
             sent2 = sent2.replace("a", "");
 
             return sent2;
         } else {
-            return null;
+
+            return "";
         }
     }
 
@@ -73,12 +72,14 @@ public class HW10 {
 //С помощью методов из видео1,  написать алгоритм, который принимает на вход строку, состоящую из цифр. Если строка валидная,
 // то метод удаляет все пробелы из строки, если таковые имеются. Метод возвращает обработанную строку, в которой нет нулей.
     public static String removeAllZeros(String sent3) {
-        if (sent3.length() != 0) {
-            sent3 = sent3.replace(" ", "");
-            sent3 = sent3.replace("0", "");
+        if (sent3 != null && sent3.length() != 0) {
+            sent3 = sent3.replace(" ", "")
+                    .replace("0", "");
+
             return sent3;
         } else {
-            return null;
+
+            return "";
         }
     }
 
@@ -86,19 +87,21 @@ public class HW10 {
 //С помощью методов из видео1,  написать алгоритм, который принимает на вход строку. Если строка валидная, то метод удаляет
 // все пробелы из строки, если таковые имеются. Метод возвращает обработанную строку.
     public static String removeAllSpaces(String sent4) {
-        if (sent4.length() != 0) {
+        if (sent4 != null && sent4.length() != 0) {
             sent4 = sent4.replace(" ", "");
+
             return sent4;
         } else {
-            return null;
+
+            return "";
         }
     }
 
     // 5 Напишите метод, который принимает на вход строку и считает, сколько букв а или А содержится в строке.
     public static int howManyLetters(String str) {
-        if (str.length() != 0) {
+        if (str != null && str.length() != 0) {
             str = str.toLowerCase();
-            if (str.contains("a") == true) {
+            if (str.contains("a")) {
                 int count = 0;
                 for (int i = 0; i < str.length(); i++) {
                     if (str.charAt(i) == 'a') {
@@ -114,83 +117,78 @@ public class HW10 {
 
     // 6 Напишите метод, который принимает на вход текст и проверяет, содержится ли в тексте хотя бы одно слово Java.
     public static boolean isThereJavaWord(String text) {
-//        if(text.length() != 0){
-        boolean bool = true;
-        if (text.contains("Java") == bool) {
+        if (text != null && text.length() != 0) {
+            boolean bool = true;
+            if (text.contains("Java") == bool) {
 
-            return bool;
-        } else {
-            return false;
+                return bool;  // убрать все, из условия сразу ретерн контейнс жава
+            } else {
+                return false;
+            }
         }
-        //       }
+        return false;
     }
 
     // 7 Напишите метод, который принимает на вход строку, и добавляет Кавычки в начале строки, точку и кавычки в конце строки
 // с помощью метода concat()
     public static String getConcat(String str) {
-        if (str.length() != 0) {
+        if (str != null && str.length() != 0) {
             str = str.trim();
             str = "\"" + str.concat(".\"");
+            return str;
         }
-        return str;
+        return "";
     }
 
     // 8 Напишите метод, кторый принимает на вход название города и исправляет написание
     public static String getTrueName(String str) {
-        if (str.length() != 0) {
+        if (str != null && str.length() != 0) {
             str = str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
 
             return str;
         }
-        return null;
+        return "";
     }
 
     // 9 Напишите метод, который принимает на вход строку, и возвращает все, что находится между первой и последней буквой-параметром
     public static String getLettersBetween(String str, char let1) {
-        if (str.length() != 0) {
-            str = str.substring(str.indexOf(let1), str.lastIndexOf(let1));
+        if (str != null && str.length() != 0) {
+            // str = str.substring(str.indexOf(let1), str.lastIndexOf(let1) +1);
 
-            return str;
+            return str.substring(str.indexOf(let1), str.lastIndexOf(let1) + 1);
         }
-        return null;
+        return "";
     }
 
     // 10 Напишите метод, который принимает на вход слово, и возвращает true, если слово начинается и заканчивается на
 // одинаковую букву, и false иначе
     public static boolean isTheSameLet(String str) {
-        //      if (str.length() != 0 && str != null){
-        str = str.toLowerCase();
-        if (str.charAt(0) == str.charAt(str.length() - 1)) {
-            return true;
-        } else {
-            return false;
+        if (str != null && str.length() != 0) {
+            str = str.trim().toLowerCase();
+            return (str.charAt(0) == str.charAt(str.length() - 1));
         }
-        //      }
+        return false;
     }
 
     // 11 Напишите метод, который принимает на вход предложение и возвращает слова из этого предложения в виде массива слов
     public static String[] getWords(String str) {
-        if (str.length() != 0 && str != null) {
-            String words[] = str.split(" ");
-            for (int i = 0; i < words.length; i++) {
-                return words;
-            }
+        if (str != null && str.length() != 0) {
+
+            return str.split(" ");
         }
-        return null;
+        return new String[]{};
     }
 
     // 12 Написать метод, который принимает на вход предложение, которое состоит из имени, фамилии, отчества и возвращает массив строк:
     public static String[] getArray(String str) {
-        if (str.length() != 0 && str != null) {
+        if (str != null && str.length() != 0) {
             String word[] = str.split(" ");
-            for (int i = 0; i < word.length; i++) {
-                word[i] = "Имя: " + word[i];
-                word[i + 1] = "Отчество: " + word[i + 1];
-                word[i + 2] = "Фамилия: " + word[i + 2];
+                word[0] = "Имя: " + word[0];
+                word[1] = "Отчество: " + word[1];
+                word[2] = "Фамилия: " + word[2];
                 return word;
             }
-        }
-        return null;
+        return new String[]{};
     }
 
     // 13 Написать метод, который возвращает сумму всех букв слова
@@ -206,16 +204,14 @@ public class HW10 {
         }
         return sum;
     }
-// 14 Написать метод,  который принимает на вход 2 буквы и возвращает true, если первая буква встречается раньше второй,
+
+    // 14 Написать метод,  который принимает на вход 2 буквы и возвращает true, если первая буква встречается раньше второй,
 // иначе метод возвращает false
-    public static boolean isThisPrimaryLetter(char a, char b){
-        if (Character.valueOf(a) < Character.valueOf(b)){
-            return true;
+    public static boolean isThisPrimaryLetter(char a, char b) {
+       // if (Character.valueOf(a) < Character.valueOf(b)) {
+            return Character.valueOf(a) < Character.valueOf(b);
         }
-        else {
-            return false;
-        }
-    }
+    //}
 
 
     public static void main(String[] args) {
